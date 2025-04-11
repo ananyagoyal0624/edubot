@@ -177,7 +177,7 @@ def extract_main_topic(query):
     
     return topic
     
-ef find_similar_question(query, cache, embeddings_model, similarity_threshold=0.85):
+def find_similar_question(query, cache, embeddings_model, similarity_threshold=0.85):
     logger.info(f"Checking for semantically similar questions to: {query}")
     
     if not cache["questions"]:
@@ -272,7 +272,7 @@ def ask():
             return jsonify({"answer": similar_answer, "source": "cache_similar_match", "similarity": score})
 
         
-        fallback_chain = fallback_prompt | llm
+        
         response = fallback_chain.invoke({"question": query})
         final_answer = response.content.strip() if response else "No relevant information found."
 
