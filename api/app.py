@@ -15,9 +15,7 @@ from langchain.tools import Tool
 from langchain_community.utilities import SerpAPIWrapper
 import traceback
 
-@app.route("/", methods=["GET"])
-def home():
-    return "✅ Flask chatbot backend is running!"
+
 
 # Logging setup
 logging.basicConfig(
@@ -38,6 +36,10 @@ logger.info("Environment variables loaded")
 app = Flask(__name__)
 CORS(app, resources={r"/ask": {"origins": "*"}}, supports_credentials=True)
 logger.info("Flask app initialized with CORS")
+
+@app.route("/", methods=["GET"])
+def home():
+    return "✅ Flask chatbot backend is running!"
 
 # MongoDB
 mongo_uri = os.getenv("MONGODB_URI")
