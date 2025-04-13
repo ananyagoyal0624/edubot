@@ -34,7 +34,8 @@ logger.info("Environment variables loaded")
 
 # Flask setup
 app = Flask(__name__)
-CORS(app, resources={r"/ask": {"origins": "*"}}, supports_credentials=True)
+CORS(app, origins=["http://localhost:8081", "https://edu-frontend-1.onrender.com"], supports_credentials=True)
+
 logger.info("Flask app initialized with CORS")
 
 @app.route("/", methods=["GET"])
