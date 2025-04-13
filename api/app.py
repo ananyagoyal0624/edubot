@@ -41,9 +41,7 @@ CORS(app,
          "http://localhost:8081",
          "https://edu-frontend-1.onrender.com"
      ]}},
-     supports_credentials=True,
-     allow_headers=["Content-Type", "Authorization"],
-     methods=["GET", "POST", "OPTIONS"])
+     supports_credentials=True)
 
 
 logger.info("Flask app initialized with CORS")
